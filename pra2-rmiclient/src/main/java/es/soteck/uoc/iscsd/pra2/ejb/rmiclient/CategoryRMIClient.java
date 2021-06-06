@@ -24,7 +24,7 @@ public class CategoryRMIClient {
 		}
 	}
 
-	private void run() throws NamingException {
+	protected void run() throws NamingException {
 		Properties jndiProps = new Properties();
 		jndiProps.put(Context.INITIAL_CONTEXT_FACTORY, "org.wildfly.naming.client.WildFlyInitialContextFactory");
 		jndiProps.put(Context.PROVIDER_URL, "http-remoting://127.0.0.1:8080");
