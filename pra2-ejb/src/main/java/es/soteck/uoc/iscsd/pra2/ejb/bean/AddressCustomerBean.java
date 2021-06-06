@@ -13,7 +13,7 @@ import javax.persistence.PersistenceContext;
 @Stateless
 public class AddressCustomerBean implements AddressCustomerRemote, AddressCustomerLocal {
 
-	@PersistenceContext(unitName = "AccountAddress")
+	@PersistenceContext(unitName = "GAO-PU")
 	private EntityManager entman;
 
 	public CustomerDO newCustomer(int id, String lname, String fname) {
