@@ -17,6 +17,7 @@ import java.io.Serializable;
 @Table(name = "address", schema = "uoccsd")
 public class Address implements Serializable {
 
+	private static final long serialVersionUID = -7432439993674121023L;
 
 	@Id
 	private int id;

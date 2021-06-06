@@ -1,7 +1,7 @@
 package es.soteck.uoc.iscsd.pra2.ejb.rmiclient;
 
 
-import es.soteck.uoc.iscsd.pra2.ejb.bean.AddressCustomer;
+import es.soteck.uoc.iscsd.pra2.ejb.bean.AddressCustomerRemote;
 import es.soteck.uoc.iscsd.pra2.ejb.pojo.AddressDO;
 
 import javax.naming.Context;
@@ -30,7 +30,7 @@ public class AddressCustoClient
 			
 			Context ctx = new InitialContext(jndiProps);
 
-    		AddressCustomer beanRemote = (AddressCustomer) ctx.lookup("java:pra2-ejb/AddressCustomerBean!es.soteck.uoc.iscsd.pra2.ejb.bean.AddressCustomer");
+    		AddressCustomerRemote beanRemote = (AddressCustomerRemote) ctx.lookup("java:pra2-ejb/AddressCustomerBean!es.soteck.uoc.iscsd.pra2.ejb.bean.AddressCustomer");
 
     		System.out.println("Creating Customer 1..");
     		// create a Customer

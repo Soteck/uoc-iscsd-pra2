@@ -3,10 +3,10 @@ package es.soteck.uoc.iscsd.pra2.ejb.bean;
 import es.soteck.uoc.iscsd.pra2.ejb.pojo.AddressDO;
 import es.soteck.uoc.iscsd.pra2.ejb.pojo.CustomerDO;
 
-import javax.ejb.Remote;
+import javax.ejb.Local;
 
-@Remote
-public interface AddressCustomer {
+@Local
+public interface AddressCustomerLocal {
 	
 	public CustomerDO newCustomer(int id, String lname, String fname);
 	

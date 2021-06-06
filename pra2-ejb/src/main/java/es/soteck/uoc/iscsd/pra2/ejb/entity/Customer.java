@@ -14,18 +14,25 @@ import java.io.Serializable;
 @Table(name = "customer", schema = "uoccsd")
 public class Customer implements Serializable {
 
+	private static final long serialVersionUID = -1344945732500875806L;
+
 	@Id
 	private int id;
 
 	@Column(name = "last_name")
-	private String last_name;
+	private String lastName;
 
 	@Column(name = "first_name")
-	private String first_name;
+	private String firstName;
 
 	@OneToOne
 	@JoinColumn(name = "home_address")
 	private Address address;
 
+	public Customer (int id, String lastName, String firstName){
+		this.id = id;
+		this.lastName = lastName;
+		this.firstName = firstName;
+	}
 
 }

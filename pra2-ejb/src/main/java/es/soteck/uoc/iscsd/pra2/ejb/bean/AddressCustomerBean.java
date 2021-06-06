@@ -11,7 +11,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 @Stateless
-public class AddressCustomerBean implements AddressCustomer {
+public class AddressCustomerBean implements AddressCustomerRemote, AddressCustomerLocal {
 
 	@PersistenceContext(unitName = "AccountAddress")
 	private EntityManager entman;
@@ -39,10 +39,10 @@ public class AddressCustomerBean implements AddressCustomer {
 		Customer custo = entman.find(Customer.class, idCustomer);
 
 		if (custo != null) {
-			custo.setHomeAddress(address);
+			custo.setAddress(address);
 
-			adReturn = new AddressDO(custo.getHomeAddress().getId(), custo.getHomeAddress().getStreet(),
-					custo.getHomeAddress().getCity(), custo.getHomeAddress().getState(), custo.getHomeAddress().getZip());
+			adReturn = new AddressDO(custo.getAddress().getId(), custo.getAddress().getStreet(),
+					custo.getAddress().getCity(), custo.getAddress().getState(), custo.getAddress().getZip());
 		}
 		return adReturn;
 	}
@@ -54,8 +54,8 @@ public class AddressCustomerBean implements AddressCustomer {
 
 		if (custo != null) {
 
-			adReturn = new AddressDO(custo.getHomeAddress().getId(), custo.getHomeAddress().getStreet(),
-					custo.getHomeAddress().getCity(), custo.getHomeAddress().getState(), custo.getHomeAddress().getZip());
+			adReturn = new AddressDO(custo.getAddress().getId(), custo.getAddress().getStreet(),
+					custo.getAddress().getCity(), custo.getAddress().getState(), custo.getAddress().getZip());
 		}
 		return adReturn;
 
