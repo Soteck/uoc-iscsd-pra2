@@ -34,7 +34,11 @@ public class CategoryRepository implements CategoryRepositoryInterface {
 
 	@Override
 	public Category update(Serializable id, Category data) {
-		return null;
+		Category bddData = this.get(id);
+//		bddData.setName(data.getName());
+		bddData.setDescription(data.getDescription());
+		em.flush();
+		return bddData;
 	}
 
 	@Override

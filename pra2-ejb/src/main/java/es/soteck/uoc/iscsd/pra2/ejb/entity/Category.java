@@ -18,5 +18,8 @@ public class Category {
 
 	@Id
 	@Column(name = "name")
-	private String nombre;
+	private String name;
+
+	@Column(name = "description")
+	private String description;
 }
