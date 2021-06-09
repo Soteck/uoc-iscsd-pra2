@@ -1,4 +1,4 @@
-package es.soteck.uoc.iscsd.pra2.ejb.rmiclient;
+package es.soteck.uoc.iscsd.pra2.rmiclient;
 
 import org.junit.jupiter.api.Test;
 
