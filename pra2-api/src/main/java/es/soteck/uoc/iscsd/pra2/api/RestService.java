@@ -10,7 +10,7 @@ import javax.ws.rs.core.Response;
 
 @Path("/category")
 @Produces(MediaType.APPLICATION_JSON)
-@Consumes(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 public class RestService {
 
 	@EJB
