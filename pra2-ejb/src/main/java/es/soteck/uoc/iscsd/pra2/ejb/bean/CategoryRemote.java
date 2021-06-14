@@ -16,4 +16,6 @@ public interface CategoryRemote {
 
 	CategoryVO update(String name, String description);
 
+	CategoryVO findByName(String name);
+
 }

@@ -16,5 +16,7 @@ public interface CategoryLocal {
 
 	CategoryVO update(String name, String description);
 
+	CategoryVO findByName(String name);
+
 
 }

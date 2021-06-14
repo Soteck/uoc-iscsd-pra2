@@ -42,6 +42,11 @@ public class CategoryBean implements CategoryLocal, CategoryRemote {
 		return entityToVO(this.categoryRepository.update(name, data));
 	}
 
+	@Override
+	public CategoryVO findByName(String name) {
+		return entityToVO(this.categoryRepository.get(name));
+	}
+
 	private CategoryVO entityToVO(Category category) {
 		CategoryVO ret = new CategoryVO();
 		ret.setName(category.getName());
