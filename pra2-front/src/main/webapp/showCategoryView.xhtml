@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<h:body>
+
+    <f:metadata>
+        <f:viewParam name="categoryName" value="#{ShowCategoryMB.categoryName}"/>
+    </f:metadata>
+
+    <h:form>
+        <span>Name</span> <h:outputText value="#{ShowCategoryMB.category.name}" />
+        <br/>
+        <span>Description</span> <h:outputText value="#{ShowCategoryMB.category.description}" />
+
+    </h:form>
+
+</h:body>
+</html>
