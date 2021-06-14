@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <script type="application/json" src="lib/bootstrap-5.0.1-dist/js/bootstrap.bundle.min.js"></script>
+    <link href="lib/bootstrap-5.0.1-dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/styles.css" rel="stylesheet"/>
+
+    <title>PetStore UOC - Practical Case</title>
+</h:head>
+
+<h:body>
+    <ui:insert name="top">
+        <nav class="navbar fixed-top navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href=".">ISCSD - PRACTICA 2</a>
+
+                <div id="navbarText">
+                    <span class="navbar-text"> Guillem Arrom Oliver </span>
+                </div>
+            </div>
+        </nav>
+    </ui:insert>
+    <div id="content">
+        <div class="container">
+            <ui:insert name="content">Content</ui:insert>
+        </div>
+    </div>
+</h:body>
+</html>

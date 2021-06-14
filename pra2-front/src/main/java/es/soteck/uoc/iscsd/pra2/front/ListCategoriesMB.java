@@ -21,7 +21,7 @@ public class ListCategoriesMB {
 	}
 
 	public String listCategories() {
-		return "listCategoryView";
+		return "listCategoryView.xhtml";
 	}
 
 }

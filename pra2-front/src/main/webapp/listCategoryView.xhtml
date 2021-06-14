@@ -3,29 +3,33 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html">
-<h:body>
 
-    <h:dataTable value="#{ListCategoriesMB.categories}" var="category"
-                 styleClass="categoryTable"
-                 headerClass="categoryTableHeader"
-                 rowClasses="categoryTableOddRow,categoryTableEvenRow">
+<ui:composition template="headerView.xhtml">
+    <ui:define name="content">
 
-        <h:column>
-            <f:facet name="header">Name</f:facet>
-            <h:outputText value="#{category.name}"/>
-        </h:column>
+        <h:dataTable value="#{ListCategoriesMB.categories}" var="category"
+                     styleClass="categoryTable"
+                     headerClass="categoryTableHeader"
+                     rowClasses="categoryTableOddRow,categoryTableEvenRow">
 
-        <h:column>
-            <f:facet name="header">Description</f:facet>
-            <h:outputText value="#{category.description}"/>
-        </h:column>
-        <h:column>
-            <h:link outcome="showCategoryView" value="Ver categoria" >
-                <f:param name="categoryName" value="#{category.name}" />
-            </h:link>
-        </h:column>
-    </h:dataTable>
-</h:body>
+            <h:column>
+                <f:facet name="header">Name</f:facet>
+                <h:outputText value="#{category.name}"/>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Description</f:facet>
+                <h:outputText value="#{category.description}"/>
+            </h:column>
+            <h:column>
+                <h:link outcome="showCategoryView" value="Ver categoria">
+                    <f:param name="categoryName" value="#{category.name}"/>
+                </h:link>
+            </h:column>
+        </h:dataTable>
+    </ui:define>
+</ui:composition>
 </html>

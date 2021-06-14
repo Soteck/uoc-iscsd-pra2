@@ -3,20 +3,23 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html">
-<h:body>
 
-    <f:metadata>
-        <f:viewParam name="categoryName" value="#{ShowCategoryMB.categoryName}"/>
-    </f:metadata>
+<f:metadata>
+    <f:viewParam name="categoryName" value="#{ShowCategoryMB.categoryName}"/>
+</f:metadata>
 
-    <h:form>
-        <span>Name</span> <h:outputText value="#{ShowCategoryMB.category.name}" />
-        <br/>
-        <span>Description</span> <h:outputText value="#{ShowCategoryMB.category.description}" />
+<ui:composition template="headerView.xhtml">
 
-    </h:form>
+    <ui:define name="content">
+        <h:form>
+            <span>Name</span> <h:outputText value="#{ShowCategoryMB.category.name}"/>
+            <br/>
+            <span>Description</span> <h:outputText value="#{ShowCategoryMB.category.description}"/>
 
-</h:body>
+        </h:form>
+    </ui:define>
+</ui:composition>
 </html>

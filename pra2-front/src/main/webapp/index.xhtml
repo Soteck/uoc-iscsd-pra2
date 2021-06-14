@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
+        >
 
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html">
-<h:body>
 
-    <h:link outcome="listCategoryView" value="Ver todas las categorias"/>
-    <h:commandButton label="Ver todas las categorias" height="355" width="350" align="middle" border="0"
-                     action ="#{ListCategoriesMB.listCategories}" immediate="true"/>
+<ui:composition template="headerView.xhtml">
+    <ui:define name="content">
+        <div class="row" style="padding-top: 250px;">
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col">
+                <h:form>
+                <h:commandButton value="Ver todas las categorias" height="355" width="350"
+                                 action="#{ListCategoriesMB.listCategories}" immediate="true"
+                                 class="btn btn-primary"/>
+                </h:form>
+            </div>
+            <div class="col"></div>
+            <div class="col"></div>
+        </div>
 
-</h:body>
+
+    </ui:define>
+</ui:composition>
 </html>
