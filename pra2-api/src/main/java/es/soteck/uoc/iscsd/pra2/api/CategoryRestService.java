@@ -10,8 +10,7 @@ import javax.ws.rs.core.Response;
 
 @Path("/category")
 @Produces(MediaType.APPLICATION_JSON)
-@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-public class RestService {
+public class CategoryRestService {
 
 	@EJB
 	private CategoryLocal categoryLocal;
@@ -19,13 +18,14 @@ public class RestService {
 
 	@GET
 	@Path("/")
-	public Response listAll() {
+	public Response listAllCategories() {
 		return Response.ok(categoryLocal.list()).build();
 	}
 
 	@POST
 	@Path("/")
-	public Response insertItem(
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	public Response insertCategory(
 			MultivaluedMap<String, String> formParams) {
 		String name = formParams.getFirst("name");
 		String description = formParams.getFirst("description");
@@ -34,7 +34,8 @@ public class RestService {
 
 	@PUT
 	@Path("/{primaryKey}")
-	public Response updateItem(
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	public Response updateCategory(
 			MultivaluedMap<String, String> formParams,
 			@PathParam("primaryKey") String primaryKey) {
 		String description = formParams.getFirst("description");
@@ -44,9 +45,15 @@ public class RestService {
 
 	@DELETE
 	@Path("/{primaryKey}")
-	public Response deleteItem(
+	public Response deleteCategory(
 			@PathParam("primaryKey") String primaryKey) {
 		categoryLocal.delete(primaryKey);
 		return Response.ok().build();
+	}
+	@GET
+	@Path("/{primaryKey}")
+	public Response getategory(
+			@PathParam("primaryKey") String primaryKey) {
+		return Response.ok(categoryLocal.findByName(primaryKey)).build();
 	}
 }

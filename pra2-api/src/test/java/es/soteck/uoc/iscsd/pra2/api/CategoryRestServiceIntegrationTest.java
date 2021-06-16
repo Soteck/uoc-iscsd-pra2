@@ -25,7 +25,7 @@ import java.util.List;
 
 @Slf4j
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class RestServiceIntegrationTest {
+public class CategoryRestServiceIntegrationTest {
 	protected ObjectMapper mapper = new ObjectMapper();
 
 	private static final String BASE_URI = "http://localhost:8080/api/services/";
@@ -72,7 +72,7 @@ public class RestServiceIntegrationTest {
 		int i = 0;
 		for (CategoryVO category : result) {
 			i++;
-			log.info("Categoria " + i + ". N: " + category.getName() + ". D: " + category.getDescription());
+			log.info("Listando categorias: Categoria " + i + ". N: " + category.getName() + ". D: " + category.getDescription());
 		}
 	}
 
@@ -94,8 +94,27 @@ public class RestServiceIntegrationTest {
 		log.info("Categoria actualizada. N: " + result.getName() + ". D: " + result.getDescription());
 	}
 
+
 	@Test
 	@Order(4)
+	public void getListTest2() throws IOException {
+		HttpGet request = new HttpGet(BASE_URI + "category");
+
+		HttpResponse response = HttpClientBuilder.create().build().execute(request);
+
+		String jsonFromResponse = EntityUtils.toString(response.getEntity());
+
+		CategoryVO[] result = (CategoryVO[]) mapper.readValue(jsonFromResponse, arayClass);
+
+		int i = 0;
+		for (CategoryVO category : result) {
+			i++;
+			log.info("Listando categorias:  Categoria " + i + ". N: " + category.getName() + ". D: " + category.getDescription());
+		}
+	}
+
+	@Test
+	@Order(5)
 	public void deleteTest() throws IOException {
 		for (int i = 0; i < TEST_DATA.length; i++) {
 			HttpDelete request = new HttpDelete(BASE_URI + "category/" + TEST_DATA[i][0]);
