@@ -34,7 +34,7 @@ public class CategoryRMIClient {
 
 		Context ctx = new InitialContext(jndiProps);
 
-		CategoryRemote beanRemote = (CategoryRemote) ctx.lookup("java:pra2-ejb/CategoryBean!es.soteck.uoc.iscsd.pra2.ejb.bean.CategoryRemote");
+		CategoryRemote beanRemote = (CategoryRemote) ctx.lookup("java:pra2-ear/pra2-ejb/CategoryBean!es.soteck.uoc.iscsd.pra2.ejb.bean.CategoryRemote");
 
 		log.info("Creando categoria lirica");
 		beanRemote.add("Lirico", "Eventos líricos ya sea operísticos o teatrales");
