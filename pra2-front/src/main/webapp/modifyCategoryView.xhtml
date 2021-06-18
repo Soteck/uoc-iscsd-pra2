@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<f:metadata>
+    <f:viewParam name="categoryName" value="#{EditCategoryMB.categoryName}"/>
+</f:metadata>
+
+<ui:composition template="headerView.xhtml">
+    <c:set var="edit"  value="#{(EditCategoryMB.categoryName == null || EditCategoryMB.categoryName.length < 1)}"/>
+    <c:set var="categoria"  value="#{edit == true ? AddCategoryMB.category : EditCategoryMB.category}" />
+    <ui:define name="content">
+        <h:form>
+            <h:inputText value="#{categoria.name}" disabled="#{edit}" />
+
+            <span>Name</span> <h:outputText value="#{categoria.name}"/>
+            <br/>
+            <span>Description</span> <h:outputText value="#{categoria.description}"/>
+
+        </h:form>
+    </ui:define>
+</ui:composition>
+</html>
