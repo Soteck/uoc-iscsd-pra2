@@ -38,6 +38,8 @@ public class EditCategoryMB {
 
     public Object actualizarCategoria() {
 		categoryLocal.update(category.getName(), category.getDescription());
+		this.categoryName = null;
+		this.category = null;
 		return "listCategoryView.xhtml";
     }
 }

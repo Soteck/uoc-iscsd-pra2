@@ -15,10 +15,24 @@
 
     <ui:define name="content">
         <h:form>
-            <span>Name</span> <h:outputText value="#{ShowCategoryMB.category.name}"/>
-            <br/>
-            <span>Description</span> <h:outputText value="#{ShowCategoryMB.category.description}"/>
-
+            <div style="padding-top: 50px">
+                <div class="row">
+                    <div class="col">
+                        Name
+                    </div>
+                    <div class="col">
+                        <h:outputText value="#{ShowCategoryMB.category.name}"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        Description
+                    </div>
+                    <div class="col">
+                        <h:outputText value="#{ShowCategoryMB.category.description}"/>
+                    </div>
+                </div>
+            </div>
         </h:form>
     </ui:define>
 </ui:composition>
