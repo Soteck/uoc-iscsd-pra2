@@ -9,11 +9,6 @@
 
 <ui:composition template="headerView.xhtml">
     <ui:define name="content">
-        <h:link outcome="modifyCategoryView" class="btn btn-info" style="margin-left: 25px;">
-            <f:param name="categoryName" value=""/>
-            <i class="fa fa-edit">&nbsp;</i>
-            <span>Añadir Categoria</span>
-        </h:link>
         <div style="padding-top: 50px">
             <h:dataTable value="#{ListCategoriesMB.categories}" var="category"
                          styleClass="categoryTable table table-dark table-striped table-hover"
@@ -43,6 +38,13 @@
                     </h:link>
                 </h:column>
             </h:dataTable>
+            <br/>
+
+            <h:link outcome="modifyCategoryView" class="btn btn-info" style="margin-left: 25px;">
+                <f:param name="categoryName" value=""/>
+                <i class="fa fa-edit">&nbsp;</i>
+                <span>Añadir Categoria</span>
+            </h:link>
         </div>
     </ui:define>
 </ui:composition>

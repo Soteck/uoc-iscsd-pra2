@@ -115,7 +115,7 @@
                         </goals>
                         <configuration>
                             <!-- Never skip running the tests when the integration-test phase is invoked -->
-                            <skip>false</skip>
+                            <skip>true</skip>
                             <includes>
                                 <!-- Include integration tests within integration-test phase. -->
                                 <include>**/*IntegrationTest.java</include>

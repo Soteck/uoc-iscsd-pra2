@@ -11,13 +11,22 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean(name = "AddCategoryMB")
 public class AddCategoryMB {
 
-	@EJB
-	private CategoryLocal categoryLocal;
+    @EJB
+    private CategoryLocal categoryLocal;
 
-	private CategoryVO category = new CategoryVO();
+    private CategoryVO category = new CategoryVO();
 
-	public CategoryVO getCategory() {
-		return category;
-	}
+    public CategoryVO getCategory() {
+        return category;
+    }
 
+    public void setCategory(CategoryVO category) {
+        this.category = category;
+    }
+
+    public String anadirCategoria() {
+        categoryLocal.add(category.getName(), category.getDescription());
+        category = new CategoryVO();
+        return "listCategoryView.xhtml";
+    }
 }

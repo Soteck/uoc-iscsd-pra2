@@ -15,9 +15,17 @@ public class EditCategoryMB {
 	private CategoryLocal categoryLocal;
 
 	protected String categoryName = null;
+	private CategoryVO category;
 
 	public CategoryVO getCategory(){
-		return categoryLocal.findByName(categoryName);
+		if(category == null){
+			category = categoryLocal.findByName(categoryName);
+		}
+		return category;
+	}
+
+	public void setCategory(CategoryVO category) {
+		this.category = category;
 	}
 
 	public String getCategoryName() {
@@ -27,4 +35,9 @@ public class EditCategoryMB {
 	public void setCategoryName(String categoryName) {
 		this.categoryName = categoryName;
 	}
+
+    public Object actualizarCategoria() {
+		categoryLocal.update(category.getName(), category.getDescription());
+		return "listCategoryView.xhtml";
+    }
 }

@@ -10,18 +10,43 @@
 
 <f:metadata>
     <f:viewParam name="categoryName" value="#{EditCategoryMB.categoryName}"/>
+    <ui:param name="new" value="#{EditCategoryMB.categoryName eq null || EditCategoryMB.categoryName.length() le 1}" />
 </f:metadata>
 
 <ui:composition template="headerView.xhtml">
-    <c:set var="edit"  value="#{(EditCategoryMB.categoryName == null || EditCategoryMB.categoryName.length < 1)}"/>
-    <c:set var="categoria"  value="#{edit == true ? AddCategoryMB.category : EditCategoryMB.category}" />
     <ui:define name="content">
         <h:form>
-            <h:inputText value="#{categoria.name}" disabled="#{edit}" />
 
-            <span>Name</span> <h:outputText value="#{categoria.name}"/>
-            <br/>
-            <span>Description</span> <h:outputText value="#{categoria.description}"/>
+            <c:choose>
+                <c:when test="${new}">
+                    <span>Name <h:outputText value="#{new}" /> </span>
+                    <br/>
+                    <h:inputText value="#{AddCategoryMB.category.name}"  />
+                    <br/>
+                    <span>Description</span>
+                    <br/>
+                    <h:inputText value="#{AddCategoryMB.category.description}"  />
+
+                    <h:commandButton value="Añadir" height="355" width="350"
+                                     action="#{AddCategoryMB.anadirCategoria}"
+                                     class="btn btn-primary"/>
+
+                </c:when>
+                <c:otherwise>
+                    <span>Name <h:outputText value="#{new}" /> </span>
+                    <br/>
+                    <h:inputText value="#{EditCategoryMB.category.name}" disabled="true"  />
+                    <br/>
+                    <span>Description</span>
+                    <br/>
+                    <h:inputText value="#{EditCategoryMB.category.description}"  />
+
+                    <h:commandButton value="Actualizar" height="355" width="350"
+                                     action="#{EditCategoryMB.actualizarCategoria}"
+                                     class="btn btn-primary"/>
+
+                </c:otherwise>
+            </c:choose>
 
         </h:form>
     </ui:define>
