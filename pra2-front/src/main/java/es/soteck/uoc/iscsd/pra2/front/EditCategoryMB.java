@@ -18,7 +18,7 @@ public class EditCategoryMB {
 	private CategoryVO category;
 
 	public CategoryVO getCategory(){
-		if(category == null){
+		if(category == null || !category.getName().equals(categoryName)){
 			category = categoryLocal.findByName(categoryName);
 		}
 		return category;
